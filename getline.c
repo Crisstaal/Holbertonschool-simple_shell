@@ -1,23 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main (int ac, char **av)
+int main ()
 {
-	int num = 0;
-	size_t buffsize = 32, character;
+	size_t buffsize = 32;
 	char *buffer;
 
 	buffer = malloc(sizeof(char) * buffsize);
 
-	while (num < ac)
+	while (1)
 	{
-		printf("%s\n", av[num]);
-		num++;
-	}
-
 	printf("$ ");
-	character = getline(&buffer, &buffsize, stdin);
-	printf("%ld: ", character);
+	getline(&buffer, &buffsize, stdin);
 	printf("%s\n", buffer);
+	}
 	return (0);
 }
