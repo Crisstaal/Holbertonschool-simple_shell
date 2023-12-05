@@ -5,3 +5,4 @@
 #include <string.h>
 #include <stdlib.h>
 
+char *strtok(char *str, const char *delim);
