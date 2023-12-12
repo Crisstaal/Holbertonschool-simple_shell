@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * interactive - checks if shell is interactive
  * @info: struct address
