@@ -4,10 +4,11 @@
 int main(int ac, char **av)
 {
 	int i;
+	int sum = 0;
 
 	printf("argv content is argv[]\n");
 
-	while (av != NULL)
+	for (i = 0; i < ac; i++)
 	{
 		printf("argv[%d] = %s\n", i, av[i]);
 		sum += atoi(av[i]); 

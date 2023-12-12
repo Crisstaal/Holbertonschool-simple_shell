@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 /**
  *
@@ -8,8 +9,13 @@
 void _strtok(const char *str, char delimeter)
 {
 	int len = strlen(str);
-	char word[len + 1];
+	char *word = (char *)malloc(len + 1);
 	int i, j;
+
+	if (word == NULL)
+	{
+		fprintf(stderr, "Memory allocation failed\n");
+	}
 
 	for (i = 0; i <= len; i++)
 	{
@@ -27,4 +33,5 @@ void _strtok(const char *str, char delimeter)
 			j++;
 		}
 	}
+	free (word);
 }

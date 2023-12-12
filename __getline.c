@@ -5,8 +5,6 @@ int main ()
 {
 	size_t buffsize = 32;
 	char *buffer;
-	char *ptr_copy = NULL;
-	const char *delim = " \n";
 
 	buffer = malloc(sizeof(char) * buffsize);
 
