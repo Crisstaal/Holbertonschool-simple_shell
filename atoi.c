@@ -1,14 +1,16 @@
 #include "shell.h"
+
 /**
- * interactive - cheks if shell is in intercative mode
+ * interactive - checks if shell is interactive
  * @info: struct address
  *
- * Return: 1 if interactive mode, or 0
+ * Return: 1 if interactive mode, 0 otherwise
  */
 int interactive(info_t *info)
 {
-	return (isatty(STDIN_FILENO) && info->readfo <= 2);
+	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
+
 /**
  * is_delim - checks if character is a delimeter
  * @c: the char to check
