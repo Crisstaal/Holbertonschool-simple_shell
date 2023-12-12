@@ -85,9 +85,10 @@ int main(void)
 	printf("Enter a command: ");
 	fgets(user_input, sizeof(user_input), stdin);
 
-	if(user_input[strlen(user_input) - 1] == '\n') {
+	if (user_input[strlen(user_input) - 1] == '\n')
+	{
 		user_input[strlen(user_input) - 1] = '\0';
-	
+
 	printf("Processing command: %s\n", user_input);
 	}
 	else

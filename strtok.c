@@ -7,16 +7,17 @@
  * Return: a pointer to an array of strings, or NULL on failure
 */
 
-bool get_delim(char c, const char *delimeters) {
+bool get_delim(char c, const char *delimeters)
+{
 	while (*delimeters != '\0')
 	{
 		if (c == *delimeters)
 		{
-			return true;
+			return (true);
 		}
 		delimeters++;
 	}
-	return false;
+	return (false);
 }
 
 char **strtow(char *str, char *d)
@@ -112,11 +113,11 @@ int main(void)
 
 	char **result = strtow(input, delimeters);
 	char **result2 = strtow2(input, ' ');
-	
+
 	if (result == NULL)
 	{
 		printf("Error in strtow function\n");
-		return EXIT_FAILURE;
+		return (EXIT_FAILURE);
 	}
 	printf("Result of strtow:\n");
 
@@ -131,11 +132,10 @@ int main(void)
 	if (result2 == NULL)
 	{
 		printf("Error in strtow2 function\n");
-		return EXIT_FAILURE;
+		return (EXIT_FAILURE);
 	}
 	printf("\nResult of strtow2: \n");
 
-	
 	for (j = 0; result2[i] != NULL; j++)
 	{
 		printf("%s\n", result2[i]);
@@ -143,5 +143,5 @@ int main(void)
 	}
 	free(result2);
 
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 }
