@@ -1,10 +1,14 @@
 #include "shell.h"
 #include <stdbool.h>
+#include <string.h>
 /**
- * interactive - checks if shell is interactive
- * @info: struct address
+ * interactive - checks if the shell is running in interactive mode
+ * @info: A pointer to the info_t struct that holds relevant information
  *
- * Return: 1 if interactive mode, 0 otherwise
+ * This function determines if the shell is running in interactive mode
+ * by checking whether the standard input is connected to a terminal and
+ * if the read file descriptor is less than or equal to 2
+ * Return: 1 if the shell is in interactive mode, and 0 otherwise
  */
 int interactive(info_t *info)
 {
@@ -73,6 +77,20 @@ int _atoi(char *s)
 	return (output);
 }
 
+/**
+ * main - Entry point of the simple shell program in interactive mode.
+ *
+ * Initializes the `info` structure, checks if the shell is in
+ * interactive mode, prompts the user for a command in interactive mode
+ * Then processes the entered command, handling the newline character
+ * if present. The function distinguishes
+ * between interactive and non-interactive modes
+ *
+ * Return: Always returns 0
+ */
+
+
+
 int main(void)
 {
 	info_t info;
@@ -85,9 +103,10 @@ int main(void)
 	printf("Enter a command: ");
 	fgets(user_input, sizeof(user_input), stdin);
 
-	if(user_input[strlen(user_input) - 1] == '\n') {
+	if (user_input[strlen(user_input) - 1] == '\n')
+	{
 		user_input[strlen(user_input) - 1] = '\0';
-	
+
 	printf("Processing command: %s\n", user_input);
 	}
 	else

@@ -156,7 +156,21 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	return (s);
 }
 
+<<<<<<< HEAD
 void sigintHandler(__attribute__((unused))int sig_num)
+=======
+/**
+ * gintHandler - Signal handler for SIGINT (Ctrl+C) signal.
+ * @sig_num: The signal number (unused to suppress compiler warnings).
+ *
+ * This function is a signal handler for the SIGINT signal, commonly generated
+ * when the user presses Ctrl+C. It prints a newline character to move to a new
+ * line, followed by the shell prompt ('$ '). The function then uses _putchar
+ * to flush the output buffer, ensuring the prompt is immediately visible.
+ */
+
+void gintHandler(__attribute__((unused))int sig_num)
+>>>>>>> 8eee827108a430bd2ab3bf492b1d944b7b971941
 {
 	_puts("\n");
 	_puts("$ ");
