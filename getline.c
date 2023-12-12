@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "shell.h"
 
 /**
@@ -134,7 +135,6 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	r = read_buf(info, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
-
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, s, s ? s + k : k + 1);
@@ -156,13 +156,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	return (s);
 }
 
-/**
- * sigintHandler - blocks ctrl-C
- * @sig_num: the signal number
- *
- * Return: void
- */
-void sigintHandler(__attribute__((unused))int sig_num)
+void gintHandler(__attribute__((unused))int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");
