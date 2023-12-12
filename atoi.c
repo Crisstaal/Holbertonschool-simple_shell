@@ -1,5 +1,6 @@
 #include "shell.h"
 #include <stdbool.h>
+#include <string.h>
 /**
  * interactive - checks if the shell is running in interactive mode
  * @info: A pointer to the info_t struct that holds relevant information
