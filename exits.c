@@ -1,6 +1,6 @@
 #include "shell.h"
 #include <string.h>
-
+#include <stdio.h>
 /**
  **_strncpy - copies a string
  *@dest: the destination string to be copied to
