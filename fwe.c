@@ -8,6 +8,7 @@ int main(void)
 {
 	pid_t child_pid;
 	int status;
+	int i;
 
 	for (i = 1; i <= 5; i++)
 	{
@@ -18,7 +19,7 @@ int main(void)
 			return (1);
 		}
 	}
-	for (int i = 1; i <= 5; i++)
+	for (i = 1; i <= 5; i++)
 	{
 		wait(&status);
 	}
