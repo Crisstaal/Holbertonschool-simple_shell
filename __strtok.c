@@ -1,4 +1,5 @@
-djfaljinclude "shell.h"
+#include "shell.h"
+#include <stddef.h>
 #include <stdlib.h>
 /**
  *  strtok - splits string
