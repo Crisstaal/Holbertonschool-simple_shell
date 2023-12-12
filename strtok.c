@@ -1,17 +1,35 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 /**
  * 
  *
  */
 int main(void)
 {
-	char str[] = "this is a seperated word by spaces";
-	char dleim[] = " ";
+	char str[] = "This is a word seperated by spaces";
+	char *stc = malloc(sizeof(char) * strlen(str));
+	char delim[5] = " ";
 	char *trunks;
+	int i;
 
-	trunkd = strtok(str, delim);
-	printf("%s/n", trunks);
+	strcpy(stc, str);
+	trunks = strtok(stc, delim);
+	/*printf("%p\n %p\n, str, trunks);*/
+
+	while (trunks != NULL)
+	{
+		printf("%s\n", trunks);
+		trunks = strtok(NULL, delim);
+	}
+
+	for (i = 0; i < 35; i++)
+	{
+		if (stc[i] == '\0')
+			printf("\\0");
+		else
+			printf("%c", str[i]);
+	}
 
 	return (0);
 }

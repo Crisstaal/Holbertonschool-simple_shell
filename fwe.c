@@ -14,7 +14,7 @@ int main(void)
 		child_pid = fork();
 		if (child_pid == -1)
 		{
-			perror("erroe:");
+			perror("Error:");
 			return (1);
 		}
 	}
