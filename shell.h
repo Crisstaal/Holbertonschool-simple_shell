@@ -149,6 +149,7 @@ char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 
 /* toem_tokenizer.c */
+bool is_delim(char c, const char **delimeters);
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 

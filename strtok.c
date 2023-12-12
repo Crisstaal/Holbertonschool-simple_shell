@@ -1,11 +1,22 @@
 #include "shell.h"
-
+#include <stdbool.h>
 /**
  * **strtow - splits a string into words. Repeat delimiters are ignored
  * @str: the input string
  * @d: the delimeter string
  * Return: a pointer to an array of strings, or NULL on failure
  */
+bool is_delim(char c, const char *delimeters) {
+	while (*delimeters != '\0')
+	{
+		if (c == *delimeters)
+		{
+			return true;
+		}
+		delimeters++;
+	}
+	return false;
+}
 
 char **strtow(char *str, char *d)
 {
