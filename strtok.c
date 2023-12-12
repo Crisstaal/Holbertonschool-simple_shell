@@ -1,24 +1,47 @@
 #include "shell.h"
 #include <stdbool.h>
 /**
- * **strtow - splits a string into words. Repeat delimiters are ignored
- * @str: the input string
- * @d: the delimeter string
+ * get_delim - Checks if the character is a delimiter
+ * @c: The character to check.
+ * @delimiters: The string of delimiters
+ *
+ * This function iterates through the provided delimiters and checks
+ * if the given character matches any of them. Returns true if the
+ * character is a delimiter, and false otherwise
+ * Used to identify and ignore repeated delimiters when splitting
+ * a string into words
+ *
  * Return: a pointer to an array of strings, or NULL on failure
 */
-
-bool get_delim(char c, const char *delimeters)
+bool get_delim(char c, const char *delimiters)
 {
-	while (*delimeters != '\0')
+	while (*delimiters != '\0')
 	{
-		if (c == *delimeters)
+		if (c == *delimiters)
 		{
 			return (true);
 		}
-		delimeters++;
+		delimiters++;
 	}
 	return (false);
 }
+/**
+ * strtow - Splits a string into an array of words based on delimiters.
+ * @str: The input string to be split.
+ * @d: The delimiters used for word separation (default is space).
+ *
+ * This function takes a string and a set of delimiters
+ * it splits the string into an array of words
+ * The delimiters define where the string should be broken
+ * into individual words. The function dynamically allocates memory
+ * for the array of words and returns a pointer to it. Returns NULL on
+ * failure or if the input string is empty
+ *
+ * Return: A pointer to an array of strings representing the words
+ * NULL on failure.
+ *
+ *
+ */
 
 char **strtow(char *str, char *d)
 {
@@ -105,6 +128,18 @@ char **strtow2(char *str, char d)
 	s[j] = NULL;
 	return (s);
 }
+/**
+ * main - Entry point of the program to test string splitting functions
+ *
+ * This function initializes variables, including an example input
+ * string and delimiter, and then tests two string splitting functions:
+ * `strtow` and `strtow2`. It prints the results of the `strtow` function
+ * frees the allocated memory
+ *
+ * Return: EXIT_SUCCESS if the program completes successfully
+ * EXIT_FAILURE otherwise.
+ */
+
 int main(void)
 {
 	int i, j;
