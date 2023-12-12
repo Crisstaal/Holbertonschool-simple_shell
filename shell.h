@@ -1,6 +1,7 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -149,7 +150,7 @@ char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 
 /* toem_tokenizer.c */
-bool is_delim(char c, const char **delimeters);
+bool get_delim(char c, const char *delimeters);
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 

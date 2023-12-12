@@ -5,8 +5,9 @@
  * @str: the input string
  * @d: the delimeter string
  * Return: a pointer to an array of strings, or NULL on failure
- */
-bool is_delim(char c, const char *delimeters) {
+*/
+
+bool get_delim(char c, const char *delimeters) {
 	while (*delimeters != '\0')
 	{
 		if (c == *delimeters)
@@ -28,7 +29,7 @@ char **strtow(char *str, char *d)
 	if (!d)
 		d = " ";
 	for (i = 0; str[i] != '\0'; i++)
-		if (!is_delim(str[i], d) && (is_delim(str[i + 1], d) || !str[i + 1]))
+		if (!get_delim(str[i], d) && (get_delim(str[i + 1], d) || !str[i + 1]))
 			numwords++;
 
 	if (numwords == 0)
@@ -38,10 +39,10 @@ char **strtow(char *str, char *d)
 		return (NULL);
 	for (i = 0, j = 0; j < numwords; j++)
 	{
-		while (is_delim(str[i], d))
+		while (get_delim(str[i], d))
 			i++;
 		k = 0;
-		while (!is_delim(str[i + k], d) && str[i + k])
+		while (!get_delim(str[i + k], d) && str[i + k])
 			k++;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])
@@ -102,4 +103,45 @@ char **strtow2(char *str, char d)
 	}
 	s[j] = NULL;
 	return (s);
+}
+int main(void)
+{
+	int i, j;
+	char input[] = "Hello Workd! This is a test.";
+	char *delimeters = " ";
+
+	char **result = strtow(input, delimeters);
+	char **result2 = strtow2(input, ' ');
+	
+	if (result == NULL)
+	{
+		printf("Error in strtow function\n");
+		return EXIT_FAILURE;
+	}
+	printf("Result of strtow:\n");
+
+
+	for (i = 0; result[i] != NULL; i++)
+	{
+		printf("%s\n", result[i]);
+		free(result[i]);
+	}
+	free(result);
+
+	if (result2 == NULL)
+	{
+		printf("Error in strtow2 function\n");
+		return EXIT_FAILURE;
+	}
+	printf("\nResult of strtow2: \n");
+
+	
+	for (j = 0; result2[i] != NULL; j++)
+	{
+		printf("%s\n", result2[i]);
+		free(result2[i]);
+	}
+	free(result2);
+
+	return EXIT_SUCCESS;
 }
