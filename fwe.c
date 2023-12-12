@@ -9,7 +9,7 @@ int main(void)
 	pid_t child_pid;
 	int status;
 
-	for (i = 1; 1 <= 5; i==)
+	for (i = 1; i <= 5; i++)
 	{
 		child_pid = fork();
 		if (child_pid == -1)
@@ -18,5 +18,12 @@ int main(void)
 			return (1);
 		}
 	}
-	if 
+	for (int i = 1; i <= 5; i++)
+	{
+		wait(&status);
+	}
+	printf("The child process is done.\n");
+
+	return 0;
+}
 	
