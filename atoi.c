@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdbool.h>
 /**
  * interactive - checks if shell is interactive
  * @info: struct address
@@ -16,7 +17,7 @@ int interactive(info_t *info)
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */
-int is_delim(char c, char *delim)
+bool is_delim(char c, char *delim)
 {
 	while (*delim)
 		if (*delim++ == c)
@@ -70,4 +71,27 @@ int _atoi(char *s)
 		output = result;
 
 	return (output);
+}
+
+int main(void)
+{
+	info_t info;
+	char user_input[100];
+
+	if (interactive(&info))
+	{
+		printf("Interactive mode\n");
+
+	printf("Enter a command: ");
+	fgets(user_input, sizeof(user_input), stdin);
+
+	if(user_input[strlen(user_input) - 1] == '\n') {
+		user_input[strlen(user_input) - 1] = '\0';
+	
+	printf("Processing command: %s\n", user_input);
+	}
+	else
+		printf("Non-interactive mode\n");
+	}
+	return (0);
 }
